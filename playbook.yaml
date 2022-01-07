@@ -1,0 +1,15 @@
+---
+- name: BMS-Test
+  hosts: 34.101.76.226
+  remote_user: engineer
+  
+  tasks:
+  - name: Clone Repository
+    git:
+      repo: https://github.com/Fiardika/BMS-Test.git
+      dest: /home/engineer/repo
+      clone: yes
+      update: yes
+
+  - name: Run DockerCompose Up
+    shell: cd /home/engineer/repo && docker-compose up -d
